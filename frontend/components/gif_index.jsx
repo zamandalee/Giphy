@@ -4,22 +4,26 @@ import { Link } from 'react-router-dom';
 class GifIndex extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
 
     this.gifClickHandler = this.gifClickHandler.bind(this);
   }
 
+  // routes to a new url based on the clicked gif's unique id
   gifClickHandler(e) {
-    this.props.history.push(`/${e.target.id}`);
+    const id = e.target.id; //need to store id due to errors w synthetic events
+    this.props.fetchGif(id).then( () => {
+      this.props.history.push(`/${id}`);
+    });
   }
 
   render() {
+    // return images of the 'fixed width' version of all fetched gifs
     const gifImgs = this.props.gifs.map( gif => {
       return (
         <img key={gif.id}
           className="gif-img"
           src={gif.images.fixed_width.webp}
-          data-id={gif.id}
+          id={gif.id}
           onClick={this.gifClickHandler}/>
       );
     });
@@ -51,4 +55,10 @@ const mapStateToProps = state => ({
   gifs: state.gifs
 });
 
-export default connect(mapStateToProps)(GifIndex);
+import { fetchGif } from '../actions/gif_actions';
+
+const mapDispatchToProps = dispatch => ({
+  fetchGif: gifId => dispatch(fetchGif(gifId))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(GifIndex);

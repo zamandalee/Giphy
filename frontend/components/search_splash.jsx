@@ -9,6 +9,11 @@ class SearchSplash extends React.Component {
     this.update = this.update.bind(this);
   }
 
+  componentDidMount() {
+    // auto-focuses the input search bar
+    this.titleInput.focus();
+  }
+
   // fetches gifs matching the query using the Giphy Search API, see gif_actions
   // pushes to a new url to show the GifIndex
   handleSubmit(e) {
@@ -16,11 +21,6 @@ class SearchSplash extends React.Component {
     this.props.fetchGifs(this.state.query).then( () => {
       this.props.history.push('/gifs');
     });
-  }
-
-  componentDidMount() {
-    // auto-focuses the input search bar
-    this.titleInput.focus();
   }
 
   update(e) {

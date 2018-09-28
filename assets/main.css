@@ -21,9 +21,11 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+  font-family: 'Roboto', sans-serif;
 	vertical-align: baseline;
 	box-sizing: border-box;
+  text-decoration: none;
+  color: white;
 }
 *,
 *:before,
@@ -46,7 +48,6 @@ ol, ul {
 
 body {
   background: #191919;
-  color: white;
 }
 
 .logo {
