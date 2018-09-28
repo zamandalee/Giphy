@@ -54,7 +54,7 @@ body {
 }
 
 /* GIF INDEX PAGE */
-/* allows for responsive mosiac view */
+/* allows for responsive mosaic view */
 .masonry {
   column-count: 3;
 	margin: 1.5em auto;

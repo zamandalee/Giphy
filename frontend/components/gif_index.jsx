@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class GifIndex extends React.Component {
   constructor(props) {
@@ -6,15 +7,7 @@ class GifIndex extends React.Component {
     console.log(props);
   }
 
-  logoClickHandler() {
-
-  }
-
-  backClickHandler() {
-
-  }
-
-  imgClickHandler() {
+  gifClickHandler() {
 
   }
 
@@ -30,7 +23,11 @@ class GifIndex extends React.Component {
 
     return (
       <div className="gif-index">
-        <img className="logo" src="./assets/logo.png" />
+        <Link to="/"><img className="logo"
+          src="./assets/logo.png" />
+        </Link>
+
+        <Link to="/">&larr; back to search</Link>
 
         <div className="masonry">
           {gifImgs}
