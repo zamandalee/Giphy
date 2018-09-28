@@ -6,7 +6,7 @@ import axios from 'axios';
 const apiFetchGifs = (query) => {
   return axios.get('http://api.giphy.com/v1/gifs/search', {
     params: {
-      // api_key: [api key here],
+      api_key: 'nFbq0t4ecN095B5OcGU8vAlQJFPdMchw',
       q: query
     }
   });

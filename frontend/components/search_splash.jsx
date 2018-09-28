@@ -3,17 +3,18 @@ import React from 'react';
 class SearchSplash extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {query: ""}; // so can't press enter on a blank search
-    console.log(this.props);
+    this.state = {query: ""};
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
   }
 
+  // fetches gifs matching the query using the Giphy Search API, see gif_actions
+  // pushes to a new url to show the GifIndex
   handleSubmit(e) {
-    // API call
     e.preventDefault();
-    this.props.processForm(this.state).then( () => {
-      this.props.history.push('/workspace');
+    this.props.fetchGifs(this.state.query).then( () => {
+      this.props.history.push('/gifs');
     });
   }
 
@@ -22,15 +23,14 @@ class SearchSplash extends React.Component {
     this.titleInput.focus();
   }
 
-  changeHandler() {
-    // setState
+  update(e) {
+    this.setState({query: e.target.value});
   }
 
   render() {
-    // onChange, setState(e.target.value), forms and login
     return (
       <div className="splash">
-        <iframe src="https://giphy.com/embed/3o6gbbuLW76jkt8vIc" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <iframe src="https://giphy.com/embed/3o6gbbuLW76jkt8vIc" frameBorder="0" className="gif-giphy" allowFullScreen></iframe>
 
         <form onSubmit={this.handleSubmit}>
           <input type="text"
@@ -47,6 +47,7 @@ class SearchSplash extends React.Component {
   }
 }
 
+// SearchSplash container
 
 import { connect } from 'react-redux';
 import { fetchGifs } from '../actions/gif_actions';

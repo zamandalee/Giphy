@@ -4,7 +4,7 @@ import {RECEIVE_GIFS} from '../actions/gif_actions.js';
 const gifReducer = (store = {}, action) => {
   switch (action.type) {
     case RECEIVE_GIFS:
-      return action.gifs;
+      return {gifs: action.gifs.data};
     default:
       return store;
   }

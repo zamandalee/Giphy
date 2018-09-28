@@ -7,12 +7,13 @@ import {
 } from 'react-router-dom';
 
 import SearchSplash from './search_splash.jsx';
-// import SearchSplash from './searchSplash.jsx';
+import GifIndex from './gif_index.jsx';
 
 const App = () => (
   <div>
     <Switch>
       <Route exact path="/" component={SearchSplash} />
+      <Route exact path="/gifs" component={GifIndex} />
       {/*<Route exact path="/:gif_id" component={GifShow} />*/}
       <Redirect to="/" />
     </Switch>
