@@ -54,6 +54,12 @@ body {
 }
 
 /* GIF INDEX PAGE */
+.back-bttns {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
 /* allows for responsive mosaic view */
 .masonry {
   column-count: 3;

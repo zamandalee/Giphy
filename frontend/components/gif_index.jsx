@@ -5,10 +5,12 @@ class GifIndex extends React.Component {
   constructor(props) {
     super(props);
     console.log(props);
+
+    this.gifClickHandler = this.gifClickHandler.bind(this);
   }
 
-  gifClickHandler() {
-
+  gifClickHandler(e) {
+    this.props.history.push(`/${e.target.id}`);
   }
 
   render() {
@@ -17,17 +19,20 @@ class GifIndex extends React.Component {
         <img key={gif.id}
           className="gif-img"
           src={gif.images.fixed_width.webp}
-          onClick=""/>
+          data-id={gif.id}
+          onClick={this.gifClickHandler}/>
       );
     });
 
     return (
       <div className="gif-index">
-        <Link to="/"><img className="logo"
-          src="./assets/logo.png" />
-        </Link>
+        <div className="back-bttns">
+          <Link to="/">
+            <img className="logo" src="./assets/logo.png" />
+          </Link>
 
-        <Link to="/">&larr; back to search</Link>
+          <Link to="/">&larr; back to search</Link>
+        </div>
 
         <div className="masonry">
           {gifImgs}
