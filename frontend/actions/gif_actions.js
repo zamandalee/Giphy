@@ -37,9 +37,18 @@ const receiveGif = gif => ({
 });
 
 export const fetchGifs = query => dispatch => {
-  return apiFetchGifs(query).then( response => dispatch(receiveGifs(response.data)) );
+  // turn array of gifs in response to an obj for faster read time later
+  return apiFetchGifs(query).then( response => {
+    const dataObj = {};
+    response.data.data.forEach( gif => dataObj[gif.id] = gif );
+    return dispatch(receiveGifs(dataObj));
+  });
 };
 
 export const fetchGif = gif_id => dispatch => {
-  return apiFetchGif(gif_id).then( response => dispatch(receiveGif(response.data)) );
+  return apiFetchGif(gif_id).then( response => {
+    const gifObj = response.data.data;
+    const dataObj = {[gifObj.id]: gifObj};
+    return dispatch(receiveGif(dataObj));
+  });
 };

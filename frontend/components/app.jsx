@@ -15,6 +15,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={SearchSplash} />
       <Route exact path="/gifs" component={GifIndex} />
+      // <Route exact path="/gifs/:query" component={GifIndex} />
       <Route exact path="/:gif_id" component={GifShow} />
       <Redirect to="/" />
     </Switch>

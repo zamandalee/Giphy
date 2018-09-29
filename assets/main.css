@@ -52,11 +52,6 @@ body {
   background: #191919;
 }
 
-div {
-  width: inherit;
-  height: inherit;
-}
-
 .logo {
   width: 13em;
 }

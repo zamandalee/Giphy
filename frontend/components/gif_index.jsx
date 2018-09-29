@@ -10,15 +10,21 @@ class GifIndex extends React.Component {
 
   // routes to a new url based on the clicked gif's unique id
   gifClickHandler(e) {
-    const id = e.target.id; //need to store id due to errors w synthetic events
-    this.props.fetchGif(id).then( () => {
-      this.props.history.push(`/${id}`);
-    });
+    // const id = e.target.id; //need to store id due to errors w synthetic events
+    // this.props.fetchGif(id).then( () => {
+      this.props.history.push(`/${e.target.id}`);
+    // });
   }
+
+  // componentDidMount() {
+  //   this.props.fetchGifs
+  //
+  //   // need the contionals prob not
+  // }
 
   render() {
     // return images of the 'fixed width' version of all fetched gifs
-    const gifImgs = this.props.gifs.map( gif => {
+    const gifImgs = Object.values(this.props.gifs).map( gif => {
       return (
         <img key={gif.id}
           className="gif-img"

@@ -19,7 +19,7 @@ class SearchSplash extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.fetchGifs(this.state.query).then( () => {
-      this.props.history.push('/gifs');
+      this.props.history.push(`/gifs`);
     });
   }
 
@@ -37,7 +37,7 @@ class SearchSplash extends React.Component {
             className="search-input"
             onChange={this.update}
             value={this.state.query}
-            placeholder="Search for GIFs!"
+            placeholder="Search for gifs!"
             ref={(input) => { this.titleInput = input; }}/>
 
           <button className="search-bttn" disabled={!this.state.query}>Search</button>
