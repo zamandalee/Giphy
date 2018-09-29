@@ -44,14 +44,17 @@ class GifShow extends React.Component {
 
         <h2>{title}</h2>
         <div className="gif-show-contents">
-          <a href={selectedGif.bitly_url}>
-            <img className="gif-show-img" src={gifUrl} />
-          </a>
+          <div>
+            <a href={selectedGif.bitly_url}>
+              <img className="gif-show-img" src={gifUrl} />
+            </a>
+          </div>
 
           <div className="gif-show-details">
             <p>User: {user}</p>
             <p>Date uploaded: {importDate}</p>
             <p>Rating: {rating}</p>
+            <button className="share-bttn">Share on Slack</button>
           </div>
         </div>
       </div>

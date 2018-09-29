@@ -1,0 +1,68 @@
+.gif-show {
+  margin: 0 1.8vw;
+}
+
+.gif-show h2 {
+  font-size: 3vw;
+  font-weight: 400;
+}
+
+.gif-show-contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.gif-show-img {
+  width: 40vw;
+  padding: 2em 0;
+}
+
+.gif-show-details {
+  width: 30%;
+  font-size: 2vw;
+  font-weight: 300;
+  line-height: 2;
+}
+
+.share-bttn {
+  margin-top: 1vw;
+  padding: 0.7vw 1.3vw;
+  border: none;
+  border-radius: 5px;
+  background: #dddddd;
+
+  font-size: 1.8vw;
+  color: black;
+  font-weight: 300;
+}
+
+.share-bttn:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+  background: #8b3bdb;
+}
+
+@media only screen and (max-width: 980px) {
+  .gif-show {
+    margin: 0 7vw;
+  }
+
+  .gif-show-contents {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gif-show-img {
+    width: 40vw;
+  }
+
+  .gif-show-details {
+    width: 100%;
+    font-size: 3vw;
+  }
+
+  .share-bttn {
+    font-size: 3vw;
+  }
+}
