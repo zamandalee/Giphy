@@ -7,6 +7,17 @@
   font-size: 2.4em;
 }
 
+.gif-img {
+  cursor: pointer;
+  display: inline-block;
+  margin: 1.5em 0;
+  width: 100%;
+}
+
+.gif-img:hover {
+  opacity: 0.65;
+}
+
 /* allows for responsive and mosaic view */
 .masonry {
   column-count: 3;
@@ -39,11 +50,4 @@
   .masonry {
     column-count: 1;
   }
-}
-
-.gif-img {
-  cursor: pointer;
-  display: inline-block;
-  margin: 1.5em 0;
-  width: 100%;
 }
