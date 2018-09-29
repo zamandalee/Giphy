@@ -16,7 +16,8 @@
 }
 
 .gif-show-img {
-  width: 40vw;
+  width: 30vw;
+  max-height: 70vh;
   padding: 2em 0;
 }
 
