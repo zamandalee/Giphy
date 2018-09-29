@@ -110,6 +110,25 @@ button:disabled {
   transform: none !important;
 }
 
+@media only screen and (max-width: 680px) {
+  .splash form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-input {
+    margin-right: 0;
+  }
+
+  .search-bttn {
+    margin-top: 1em;
+    width: 70%;
+    padding: 0.2em 0;
+  }
+}
+
 /* GIF INDEX PAGE */
 .back-bttns {
   display: flex;
