@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// API utils:
+// API UTILS:
 
 // Giphy Search API: https://developers.giphy.com/docs/#search-endpoint
 const apiFetchGifs = query => {
@@ -12,7 +12,6 @@ const apiFetchGifs = query => {
   });
 };
 
-// for slack index item
 const apiFetchGif = gif_id => {
   return axios.get(`http://api.giphy.com/v1/gifs/${gif_id}`, {
     params: {
@@ -22,7 +21,8 @@ const apiFetchGif = gif_id => {
   });
 };
 
-// actions
+
+// ACTIONS
 export const RECEIVE_GIFS = 'RECEIVE_GIFS';
 export const RECEIVE_GIF = 'RECEIVE_GIF';
 

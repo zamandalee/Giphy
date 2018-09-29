@@ -6,6 +6,8 @@ class GifShow extends React.Component {
     super(props);
   }
 
+  // if selectedGif can't be found (which is the case for a page reload),
+  // fetch this single gif again
   componentDidMount() {
     if (this.props.selectedGif === undefined) {
       this.props.fetchGif(this.props.match.params.gif_id);
@@ -17,10 +19,10 @@ class GifShow extends React.Component {
 
     // if render is attempted before fetchGif is complete
     if (selectedGif === undefined) {
-      return ""; //change to loading later
+      return "";
     }
 
-    const title = selectedGif.title;
+    const title = `"${selectedGif.title}"`;
     const gifUrl = selectedGif.images.downsized_large.url;
     const user = selectedGif.username || "unknown user";
     const importDate = selectedGif.import_datetime.slice(0,10);
@@ -59,6 +61,7 @@ class GifShow extends React.Component {
 import { connect } from 'react-redux';
 import { fetchGif } from '../actions/gif_actions';
 
+// if state.gifs doesn't exist (in the case of a page reload), set selectedGif to be undefined
 const mapStateToProps = (state, ownProps) => {
   const selectedGif = state.gifs === undefined ? undefined : state.gifs[ownProps.match.params.gif_id];
   return {

@@ -14,13 +14,10 @@ class SearchSplash extends React.Component {
     this.titleInput.focus();
   }
 
-  // fetches gifs matching the query using the Giphy Search API, see gif_actions
-  // pushes to a new url to show the GifIndex
+  // routes to a new url to show the GifIndex, also passes the query str data
   handleSubmit(e) {
     e.preventDefault();
-    this.props.fetchGifs(this.state.query).then( () => {
-      this.props.history.push(`/gifs`);
-    });
+    this.props.history.push(`/search/${this.state.query}`);
   }
 
   update(e) {
@@ -47,13 +44,4 @@ class SearchSplash extends React.Component {
   }
 }
 
-// SearchSplash container
-
-import { connect } from 'react-redux';
-import { fetchGifs } from '../actions/gif_actions';
-
-const mapDispatchToProps = dispatch => ({
-  fetchGifs: query => dispatch(fetchGifs(query))
-});
-
-export default connect(null, mapDispatchToProps)(SearchSplash);
+export default SearchSplash;

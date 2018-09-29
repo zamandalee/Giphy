@@ -4,25 +4,26 @@ import { Link } from 'react-router-dom';
 class GifIndex extends React.Component {
   constructor(props) {
     super(props);
-
     this.gifClickHandler = this.gifClickHandler.bind(this);
   }
 
-  // routes to a new url based on the clicked gif's unique id
+  // upon click, routes to a new url determined by the clicked gif's unique id
   gifClickHandler(e) {
-    // const id = e.target.id; //need to store id due to errors w synthetic events
-    // this.props.fetchGif(id).then( () => {
-      this.props.history.push(`/${e.target.id}`);
-    // });
+      this.props.history.push(`/gif/${e.target.id}`);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchGifs
-  //
-  //   // need the contionals prob not
-  // }
+  // fetch gifs that match the query string from Giphy Search API
+  componentDidMount() {
+    this.props.fetchGifs(this.props.match.params.query);
+  }
 
   render() {
+    // return early if fetchGifs has not completed and props.gifs doesn't exist yet
+    if(this.props.gifs === undefined) {
+      return "";
+    }
+
+    // when fetchGifs completes, component will re-render
     // return images of the 'fixed width' version of all fetched gifs
     const gifImgs = Object.values(this.props.gifs).map( gif => {
       return (
@@ -56,15 +57,15 @@ class GifIndex extends React.Component {
 // GifIndex container
 
 import { connect } from 'react-redux';
+import { fetchGif, fetchGifs } from '../actions/gif_actions';
 
 const mapStateToProps = state => ({
   gifs: state.gifs
 });
 
-import { fetchGif } from '../actions/gif_actions';
-
 const mapDispatchToProps = dispatch => ({
-  fetchGif: gifId => dispatch(fetchGif(gifId))
+  fetchGif: gifId => dispatch(fetchGif(gifId)),
+  fetchGifs: query => dispatch(fetchGifs(query))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GifIndex);
