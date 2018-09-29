@@ -30,14 +30,14 @@ class SearchSplash extends React.Component {
   render() {
     return (
       <div className="splash">
-        <iframe src="https://giphy.com/embed/3o6gbbuLW76jkt8vIc" frameBorder="0" className="gif-giphy" allowFullScreen></iframe>
+        <img src="./assets/logo.gif" />
 
         <form onSubmit={this.handleSubmit}>
           <input type="text"
             className="search-input"
             onChange={this.update}
             value={this.state.query}
-            placeholder="Search for gifs"
+            placeholder="Search for GIFs!"
             ref={(input) => { this.titleInput = input; }}/>
 
           <button className="search-bttn" disabled={!this.state.query}>Search</button>

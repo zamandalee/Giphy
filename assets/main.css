@@ -16,10 +16,10 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, button {
 	margin: 0;
 	padding: 0;
-	border: 0;
+	border: none;
 	font-size: 100%;
   font-family: 'Roboto', sans-serif;
 	vertical-align: baseline;
@@ -47,7 +47,14 @@ ol, ul {
 /* GENERAL */
 
 body {
+  width: 100vw;
+  height: 100vh;
   background: #191919;
+}
+
+div {
+  width: inherit;
+  height: inherit;
 }
 
 .logo {
@@ -65,7 +72,7 @@ body {
 .masonry {
   column-count: 3;
 	margin: 1.5em auto;
-	max-width: 768px;
+	max-width: 1200px;
   column-gap: 1.7em;
 }
 
