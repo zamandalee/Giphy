@@ -27,12 +27,13 @@ class GifShow extends React.Component {
                 pretext: "Hey everyone, check out this awesome gif!",
                 title: `${this.props.selectedGif.title}`,
                 image_url: `${this.props.selectedGif.images.downsized_large.url}`,
+                color: "#4dbaf9"
             }
         ]
     };
     axios.post('https://hooks.slack.com/services/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', JSON.stringify(options))
     .then((response) => {
-      console.log('SUCCEEDED: Sent slack webhook: \n', response.data);
+      document.getElementById("check").className = "check";
     });
   }
 
@@ -72,7 +73,10 @@ class GifShow extends React.Component {
             <p>User: {user}</p>
             <p>Date uploaded: {importDate}</p>
             <p>Rating: {rating}</p>
-            <button className="share-bttn" onClick={this.slackShareGif}>Share on Slack</button>
+            <div className="share">
+              <button className="share-bttn" onClick={this.slackShareGif}>Share on Slack</button>
+              <span id="check" className="hidden">&#10003;</span>
+            </div>
           </div>
         </div>
       </div>
