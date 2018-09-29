@@ -42,9 +42,10 @@ class GifIndex extends React.Component {
             <img className="logo" src="./assets/logo.png" />
           </Link>
 
-          <Link to="/">&larr; back to search</Link>
+          <Link className="back-to-search" to="/">&larr; back to search</Link>
         </div>
 
+        <h2 className="query">"{this.props.match.params.query}"</h2>
         <div className="masonry">
           {gifImgs}
         </div>

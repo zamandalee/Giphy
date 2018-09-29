@@ -1,0 +1,88 @@
+/* GENERAL */
+
+body {
+  margin: auto;
+  width: 100vw;
+  max-width: 1200px;
+  height: 100vh;
+  background: #191919;
+}
+
+#content {
+  height: 100%;
+}
+
+.logo {
+  width: 15em;
+}
+
+/* SPLASH PAGE */
+.splash {
+  width: 100%;
+  padding-top: 20vh;
+}
+
+.splash img {
+  width: 45%;
+  display: block;
+  margin: auto;
+}
+
+.splash form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input, .search-bttn {
+  padding: 0.7em 1em;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.3em;
+}
+
+.search-input {
+  width: 70%;
+  margin-right: 1.3em;
+}
+
+.search-bttn {
+  width: 15%;
+  background: #dddddd;
+  color: black;
+  font-weight: 300;
+}
+
+.search-bttn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+  background: #8b3bdb;
+}
+
+
+button:disabled {
+  cursor: not-allowed !important;
+  background: #dddddd !important;
+  color: #aaa !important;
+  transform: none !important;
+}
+
+@media only screen and (max-width: 680px) {
+  .splash form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-input {
+    margin-right: 0;
+  }
+
+  .search-bttn {
+    margin-top: 1em;
+    width: 70%;
+    padding: 0.2em 0;
+  }
+}
