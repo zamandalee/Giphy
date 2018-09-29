@@ -38,8 +38,8 @@ class GifIndex extends React.Component {
     return (
       <div className="gif-index">
         <div className="back-bttns">
-          <Link to="/">
-            <img className="logo" src="./assets/logo.png" />
+          <Link className="logo" to="/">
+            <img src="./assets/logo.png" />
           </Link>
 
           <Link className="back-to-search" to="/">&larr; back to search</Link>

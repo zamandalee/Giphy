@@ -14,6 +14,10 @@ class GifShow extends React.Component {
     }
   }
 
+  handleBackClick() {
+    window.history.back();
+  }
+
   render() {
     const { selectedGif } = this.props;
 
@@ -31,11 +35,11 @@ class GifShow extends React.Component {
     return (
       <div className="gif-show">
         <div className="back-bttns">
-          <Link to="/">
-            <img className="logo" src="./assets/logo.png" />
+          <Link className="logo" to="/">
+            <img src="./assets/logo.png" />
           </Link>
 
-          <Link to="/">&larr; back to search</Link>
+          <button className="back-to-search" onClick={this.handleBackClick}>&larr; back to gifs</button>
         </div>
 
         <h2>{title}</h2>

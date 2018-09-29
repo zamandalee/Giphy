@@ -1,21 +1,13 @@
 /* GIF INDEX PAGE */
-.back-bttns {
-  display: flex;
-  flex-direction: column;
-  color: white;
-}
-
-.back-to-search {
-  padding-top: 1em;
-  font-size: 1.3em;
+.gif-index {
+  margin: 0 1.8vw;
 }
 
 .query {
-  padding-top: 5vw;
   font-size: 2.4em;
 }
 
-/* allows for responsive mosaic view */
+/* allows for responsive and mosaic view */
 .masonry {
   column-count: 3;
 	margin: 1.5em auto;
@@ -50,6 +42,7 @@
 }
 
 .gif-img {
+  cursor: pointer;
   display: inline-block;
   margin: 1.5em 0;
   width: 100%;

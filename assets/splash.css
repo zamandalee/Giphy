@@ -12,8 +12,25 @@ body {
   height: 100%;
 }
 
-.logo {
+.back-bttns {
+  padding-bottom: 5vw;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.logo, .back-to-search {
+  width: fit-content;
+}
+
+.logo img {
   width: 15em;
+}
+
+.back-to-search {
+  padding-top: 1em;
+  font-size: 1.3em;
+  background: none;
 }
 
 /* SPLASH PAGE */
