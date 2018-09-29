@@ -9,7 +9,7 @@ class GifIndex extends React.Component {
 
   // upon click, routes to a new url determined by the clicked gif's unique id
   gifClickHandler(e) {
-      this.props.history.push(`/gif/${e.target.id}`);
+    this.props.history.push(`/gif/${e.target.id}`);
   }
 
   // fetch gifs that match the query string from Giphy Search API

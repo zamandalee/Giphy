@@ -21,6 +21,17 @@ const apiFetchGif = gif_id => {
   });
 };
 
+export const apiUploadGif = (username, source_image_url, tags) => {
+  return axios.post('http://api.giphy.com/upload.giphy.com/v1/gifs', {
+    params: {
+      api_key: 'nFbq0t4ecN095B5OcGU8vAlQJFPdMchw',
+      username,
+      source_image_url,
+      tags
+    }
+  });
+};
+
 
 // ACTIONS
 export const RECEIVE_GIFS = 'RECEIVE_GIFS';
