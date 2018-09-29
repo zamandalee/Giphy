@@ -59,14 +59,15 @@
   font-size: 3vw;
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 960px) {
   .gif-show {
     margin: 0 7vw;
+    text-align: center;
   }
 
   .gif-show-contents {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .gif-show-img {
