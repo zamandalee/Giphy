@@ -61,6 +61,60 @@ div {
   width: 13em;
 }
 
+/* SPLASH PAGE */
+.splash {
+  width: 100vw;
+  padding-bottom: 9em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash img {
+  width: 55%;
+}
+
+.splash form {
+  width: inherit;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input, .search-bttn {
+  padding: 0.7em 1em;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.3em;
+}
+
+.search-input {
+  width: 70%;
+  margin-right: 1.3em;
+}
+
+.search-bttn {
+  width: 15%;
+  background: #dddddd;
+  color: black;
+  font-weight: 300;
+}
+
+.search-bttn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+  background: #8b3bdb;
+}
+
+
+button:disabled {
+  cursor: not-allowed !important;
+  background: #dddddd !important;
+  color: #aaa !important;
+  transform: none !important;
+}
+
 /* GIF INDEX PAGE */
 .back-bttns {
   display: flex;
