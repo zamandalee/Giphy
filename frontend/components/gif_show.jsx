@@ -20,6 +20,9 @@ class GifShow extends React.Component {
     window.history.back();
   }
 
+  // share to Slack functionality using a webhook
+  // render a green checkmark upon successful sharing
+  // https://api.slack.com/docs/message-attachments#attachment_structure
   slackShareGif() {
     const options = {
         attachments: [
@@ -89,7 +92,6 @@ class GifShow extends React.Component {
 
 import { connect } from 'react-redux';
 import { fetchGif } from '../actions/gif_actions';
-// import { fetchGif, apiShareGif } from '../actions/gif_actions';
 
 // if state.gifs doesn't exist (in the case of a page reload), set selectedGif to be undefined
 const mapStateToProps = (state, ownProps) => {
@@ -102,6 +104,5 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchGif: gifId => dispatch(fetchGif(gifId)),
 });
-// shareGif: () => dispatch(apiShareGif())
 
 export default connect(mapStateToProps, mapDispatchToProps)(GifShow);
