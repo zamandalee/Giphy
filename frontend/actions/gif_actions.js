@@ -1,4 +1,5 @@
 import axios from 'axios';
+import apiConfig from '../../apiKeys';
 
 // API UTILS:
 
@@ -6,7 +7,7 @@ import axios from 'axios';
 const apiFetchGifs = query => {
   return axios.get('http://api.giphy.com/v1/gifs/search', {
     params: {
-      api_key: 'nFbq0t4ecN095B5OcGU8vAlQJFPdMchw',
+      api_key: `${apiConfig.giphyKey}`,
       q: query
     }
   });
@@ -15,7 +16,7 @@ const apiFetchGifs = query => {
 const apiFetchGif = gif_id => {
   return axios.get(`http://api.giphy.com/v1/gifs/${gif_id}`, {
     params: {
-      api_key: 'nFbq0t4ecN095B5OcGU8vAlQJFPdMchw',
+      api_key: `${apiConfig.giphyKey}`,
       gif_id
     }
   });
@@ -24,15 +25,13 @@ const apiFetchGif = gif_id => {
 export const apiUploadGif = (username, source_image_url, tags) => {
   return axios.post('http://api.giphy.com/upload.giphy.com/v1/gifs', {
     params: {
-      api_key: 'nFbq0t4ecN095B5OcGU8vAlQJFPdMchw',
+      api_key: `${apiConfig.giphyKey}`,
       username,
       source_image_url,
       tags
     }
   });
 };
-
-
 
 
 // ACTIONS

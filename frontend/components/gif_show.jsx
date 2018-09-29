@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import apiConfig from '../../apiKeys';
 
 class GifShow extends React.Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class GifShow extends React.Component {
             }
         ]
     };
-    axios.post('https://hooks.slack.com/services/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', JSON.stringify(options))
+    axios.post(`${apiConfig.slackWebhook}`, JSON.stringify(options))
     .then((response) => {
       document.getElementById("check").className = "check";
     });
@@ -48,7 +49,7 @@ class GifShow extends React.Component {
       return "";
     }
 
-    const title = `"${selectedGif.title}"`;
+    const title = selectedGif.title === "" ? "" : `"${selectedGif.title}"`;
     const gifUrl = selectedGif.images.downsized_large.url;
     const user = selectedGif.username || "unknown user";
     const importDate = selectedGif.import_datetime.slice(0,10);
