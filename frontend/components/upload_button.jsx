@@ -13,6 +13,7 @@ class UploadButton extends React.Component {
   }
 
   handleSubmit(e) {
+    // upload Gif using API, then route to show page for new gif
     e.preventDefault();
 
     const { username, source_image_url, tags } = this.state;

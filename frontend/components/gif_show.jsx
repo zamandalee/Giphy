@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class GifShow extends React.Component {
   constructor(props) {
     super(props);
+    this.slackShareGif = this.slackShareGif.bind(this);
   }
 
   // if selectedGif can't be found (which is the case for a page reload),
@@ -16,6 +18,22 @@ class GifShow extends React.Component {
 
   handleBackClick() {
     window.history.back();
+  }
+
+  slackShareGif() {
+    const options = {
+        attachments: [
+            {
+                pretext: "Hey everyone, check out this awesome gif!",
+                title: `${this.props.selectedGif.title}`,
+                image_url: `${this.props.selectedGif.images.downsized_large.url}`,
+            }
+        ]
+    };
+    axios.post('https://hooks.slack.com/services/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', JSON.stringify(options))
+    .then((response) => {
+      console.log('SUCCEEDED: Sent slack webhook: \n', response.data);
+    });
   }
 
   render() {
@@ -54,7 +72,7 @@ class GifShow extends React.Component {
             <p>User: {user}</p>
             <p>Date uploaded: {importDate}</p>
             <p>Rating: {rating}</p>
-            <button className="share-bttn">Share on Slack</button>
+            <button className="share-bttn" onClick={this.slackShareGif}>Share on Slack</button>
           </div>
         </div>
       </div>
@@ -67,6 +85,7 @@ class GifShow extends React.Component {
 
 import { connect } from 'react-redux';
 import { fetchGif } from '../actions/gif_actions';
+// import { fetchGif, apiShareGif } from '../actions/gif_actions';
 
 // if state.gifs doesn't exist (in the case of a page reload), set selectedGif to be undefined
 const mapStateToProps = (state, ownProps) => {
@@ -77,7 +96,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchGif: gifId => dispatch(fetchGif(gifId))
+  fetchGif: gifId => dispatch(fetchGif(gifId)),
 });
+// shareGif: () => dispatch(apiShareGif())
 
 export default connect(mapStateToProps, mapDispatchToProps)(GifShow);
