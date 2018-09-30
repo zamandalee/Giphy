@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import apiConfig from '../../apiKeys';
+import { slackShareGif } from '../util/api_util';
 
 class GifShow extends React.Component {
   constructor(props) {
@@ -37,8 +37,8 @@ class GifShow extends React.Component {
             }
         ]
     };
-    axios.post(`${apiConfig.slackWebhook}`, JSON.stringify(options))
-    .then((response) => {
+
+    slackShareGif(options).then((response) => {
       document.getElementById("check").className = "check";
     });
   }
