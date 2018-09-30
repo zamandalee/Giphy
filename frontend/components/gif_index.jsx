@@ -8,6 +8,7 @@ class GifIndex extends React.Component {
   }
 
   // fetch gifs that match the query string from Giphy Search API
+  // 700ms delay to display loading icon
   componentDidMount() {
     window.setTimeout(
       () => this.props.fetchGifs(this.props.match.params.query), 700
@@ -20,7 +21,7 @@ class GifIndex extends React.Component {
   }
 
   render() {
-    // return early if fetchGifs has not completed and props.gifs doesn't exist yet
+    // return loading gif if fetchGifs has not completed and props.gifs doesn't exist yet
     if(this.props.gifs === undefined) {
       return (
         <img className="loader" src="./assets/loader.gif" />
@@ -29,7 +30,7 @@ class GifIndex extends React.Component {
 
     // when fetchGifs completes, component will re-render
     // return images of the 'fixed width' version of all fetched gifs
-    const gifImgs = Object.values(this.props.gifs).map( gif => {
+    let gifImgs = Object.values(this.props.gifs).map( gif => {
       return (
         <img key={gif.id}
           className="gif-img"
@@ -38,6 +39,11 @@ class GifIndex extends React.Component {
           onClick={this.gifClickHandler}/>
       );
     });
+
+    // if no gifs match the query, return no matches message
+    if (gifImgs.length === 0) {
+      gifImgs = <p className="no-match">no gifs match your search</p>;
+    }
 
     return (
       <div className="gif-index">

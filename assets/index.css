@@ -18,6 +18,10 @@
   opacity: 0.65;
 }
 
+.no-match {
+  font-size: 2.1vh;
+}
+
 /* allows for responsive and mosaic view */
 .masonry {
   column-count: 3;
