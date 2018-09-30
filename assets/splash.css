@@ -44,6 +44,15 @@ body {
   color: #4dbaf9;
 }
 
+.initial-upload-bttn {
+  padding: 0.5em 1em;
+  border: 1px solid white;
+  border-radius: 5px;
+  background: none;
+  font-size: 1em;
+  font-weight: 300;
+}
+
 /* SPLASH PAGE */
 .splash {
   width: 100%;
