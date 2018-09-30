@@ -7,20 +7,24 @@ class GifIndex extends React.Component {
     this.gifClickHandler = this.gifClickHandler.bind(this);
   }
 
+  // fetch gifs that match the query string from Giphy Search API
+  componentDidMount() {
+    window.setTimeout(
+      () => this.props.fetchGifs(this.props.match.params.query), 700
+    );
+  }
+
   // upon click, routes to a new url determined by the clicked gif's unique id
   gifClickHandler(e) {
     this.props.history.push(`/gif/${e.target.id}`);
   }
 
-  // fetch gifs that match the query string from Giphy Search API
-  componentDidMount() {
-    this.props.fetchGifs(this.props.match.params.query);
-  }
-
   render() {
     // return early if fetchGifs has not completed and props.gifs doesn't exist yet
     if(this.props.gifs === undefined) {
-      return "";
+      return (
+        <img className="loader" src="./assets/loader.gif" />
+      );
     }
 
     // when fetchGifs completes, component will re-render

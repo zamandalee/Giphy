@@ -13,7 +13,9 @@ class GifShow extends React.Component {
   // fetch this single gif again
   componentDidMount() {
     if (this.props.selectedGif === undefined) {
-      this.props.fetchGif(this.props.match.params.gif_id);
+      window.setTimeout(
+        () => this.props.fetchGif(this.props.match.params.gif_id), 500
+      );
     }
   }
 
@@ -46,7 +48,9 @@ class GifShow extends React.Component {
 
     // if render is attempted before fetchGif is complete
     if (selectedGif === undefined) {
-      return "";
+      return (
+        <img className="loader" src="./assets/loader.gif" />
+      );
     }
 
     const title = selectedGif.title === "" ? "" : `"${selectedGif.title}"`;

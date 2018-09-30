@@ -12,6 +12,13 @@ body {
   height: 100%;
 }
 
+.loader {
+  width: 11vw;
+  position: absolute;
+  top: 40%;
+  left: 45%;
+}
+
 .back-bttns {
   padding-bottom: 5vw;
   display: flex;
