@@ -19,6 +19,7 @@ Users can:
 Additional features:
 - Custom loading animation
 - Jest testing
+- Responsive CSS on desktop, tablet, and mobile
 
 ## Pending Features
 - Gif upload functionality
